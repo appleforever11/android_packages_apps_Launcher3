@@ -63,7 +63,7 @@ The published images crop the status strip and contain only the launcher/app inv
 ## Validation status
 
 - **Verified on device, private prototype:** native drawer opens; resize gesture changes measured bounds and saves ratios; the panel ends above three-button navigation; current glass layout and original full-color icons are visible. Owner confirmed the launcher appearance.
-- **Verified locally for source:** resize-controller Java compiles against Android SDK 35; Git whitespace checks pass. These checks are not a complete Launcher3 build or runtime test.
+- **Verified for source controller:** the exact controller compiled from this branch ran in a separate test-only APK on the real Thor lower display. The reproducible script passed 31 checks on its first run and 33 after a forced test-process restart, including persistence after disk writes complete, resize bounds, cancellation, direct enlarge/shrink/reset methods, and ordinary-touch pass-through. See [test source and results](controller-checks/README.md). This does **not** validate the complete Launcher3 target, native accessibility action wiring, or TalkBack.
 - **Not yet verified:** full `Launcher3QuickStep` platform build from this series, installation of that build, exact source-series reboot persistence, TalkBack/custom action reachability, keyboard focus/IME transitions, drag-and-drop/pinning, external displays, gesture navigation, rotations/cutouts, RTL layouts, multi-user behavior, and density changes.
 - **Known private-test incident:** the lower display was black immediately after a test reboot and recovered after unlock; the upper video wallpaper also required recovery. This series does not claim to fix those incidents or attribute them to the official drawer.
 
@@ -72,3 +72,7 @@ The published images crop the status strip and contain only the launcher/app inv
 Build and install the source series in a complete LineageOS tree. Repeat the comparisons without private routing/theme modifications. Exercise the outstanding cases above, add regression coverage for insets and persisted size bounds, and resolve review feedback. Keep the reviews WIP until those gates pass. The geometry fix can be considered independently if maintainers prefer not to add user resizing.
 
 Feedback requested: is an expanded secondary panel with safe navigation insets appropriate upstream, and should resizing be part of the native secondary launcher or remain a private customization? The private glass styling is not a requirement for accepting the functional changes.
+
+## Full-build blocker on the available host
+
+As of October 18, the available host is an ARM64 Mac with 16 GiB free internally; the backup SSD has 289 GiB free. No usable x86-64 Linux VM or running review CI build was found. Current [AOSP requirements](https://source.android.com/docs/setup/start/requirements) specify x86-64 Linux, at least 400 GB free storage, and 64 GB RAM. A complete supported build environment must be provided before these reviews can be taken out of WIP. No backup data was removed to make room and no paid host was provisioned.
