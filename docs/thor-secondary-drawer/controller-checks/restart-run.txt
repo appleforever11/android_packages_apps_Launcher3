@@ -1,0 +1,36 @@
+PASS test attached to real lower display
+PASS test drawer visible
+PASS width survives process restart (0.74, 0.74)
+PASS height survives process restart (0.68, 0.68)
+PASS default width (0.94, 0.94)
+PASS default height (0.88, 0.88)
+PASS ordinary app area not intercepted
+PASS gesture consumed 0
+PASS gesture consumed 2
+PASS gesture consumed 1
+PASS oversized width clamped (1.0, 1.0)
+PASS oversized height clamped (1.0, 1.0)
+PASS maximum width within usable area
+PASS maximum height within usable area
+PASS width restored by new source controller (1.0, 1.0)
+PASS height restored by new source controller (1.0, 1.0)
+PASS gesture consumed 0
+PASS gesture consumed 2
+PASS gesture consumed 1
+PASS minimum width clamped (0.5, 0.5)
+PASS minimum height clamped (0.45, 0.45)
+PASS gesture consumed 0
+PASS gesture consumed 2
+PASS gesture consumed 3
+PASS cancel restores original width (0.5, 0.5)
+PASS cancel restores original height (0.45, 0.45)
+PASS direct enlarge method clamp (1.0, 1.0)
+PASS direct shrink method clamp (0.45, 0.45)
+PASS reset default width (0.94, 0.94)
+PASS reset default height (0.88, 0.88)
+PASS saved restart width fixture (0.74, 0.74)
+PASS saved restart height fixture (0.68, 0.68)
+PASS preference disk writes flushed before force-stop
+Assertions: 33
+Exact source controller only; not full Launcher3 integration.
+
